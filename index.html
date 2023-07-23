@@ -1,0 +1,533 @@
+<!-- ------------------------- Coded By 0x4A4B ------------------------- -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Ultimate Fog Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+  <div class="relative isolate overflow-hidden bg-zinc-900 py-14 sm:py-auto">
+
+    <div class="text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-zinc-400 sm:text-6xl">Ultimate Fog Generator</h1>
+      <p class="mt-6 text-lg leading-8 text-gray-600">An online fog generator makes texture creator's lives easier</p>
+    </div>
+
+    <br>
+
+
+
+
+    <div class="px-6 lg:px-96">
+      <div class="flex flex-col space-y-2.5 ">
+
+        <!-- Identifier Field Start -->
+        <p class="text-zinc-300">Identifier:
+          <input type="text" list="biome" id="fog_name_input" placeholder="Biomes Name"
+            class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+            required>
+          <datalist id="biome">
+            <option value="default">Default</option>
+            <option value="bamboo_jungle">Bamboo Jungle</option>
+            <option value="bamboo_jungle_hills">Bamboo Jungle Hills</option>
+            <option value="basalt_deltas">Basalt Deltas</option>
+            <option value="beach">Beach</option>
+            <option value="birch_forest">Birch Forest</option>
+            <option value="birch_forest_hills">Birch Forest Hills</option>
+            <option value="cherry_grove">Cherry Grove</option>
+            <option value="cold_beach">Cold Beach</option>
+            <option value="cold_ocean">Cold Ocean</option>
+            <option value="cold_taiga">Cold Taiga</option>
+            <option value="cold_taiga_hills">Cold Taiga Hills</option>
+            <option value="cold_taiga_mutated">Cold Taiga Mutated</option>
+            <option value="crimson_forest">Crimson Forest</option>
+            <option value="deep_cold_ocean">Deep Cold Ocean</option>
+            <option value="deep_frozen_ocean">Deep Frozen Ocean</option>
+            <option value="deep_lukewarm_ocean">Deep Lukewarm Ocean</option>
+            <option value="deep_ocean">Deep Ocean</option>
+            <option value="deep_warm_ocean">Deep Warm Ocean</option>
+            <option value="desert">Desert</option>
+            <option value="desert_hills">Desert Hills</option>
+            <option value="extreme_hills">Extreme Hills</option>
+            <option value="extreme_hills_edge">Extreme Hills Edge</option>
+            <option value="extreme_hills_mutated">Extreme Hills Mutated</option>
+            <option value="extreme_hills_plus_trees">Extreme Hills Plus Trees</option>
+            <option value="extreme_hills_plus_trees_mutated">Extreme Hills Plus Trees Mutated</option>
+            <option value="flower_forest">Flower Forest</option>
+            <option value="forest">Forest</option>
+            <option value="forest_hills">Forest Hills</option>
+            <option value="frozen_ocean">Frozen Ocean</option>
+            <option value="frozen_river">Frozen River</option>
+            <option value="hell">Hell</option>
+            <option value="ice_mountains">Ice Mountains</option>
+            <option value="ice_plains">Ice Plains</option>
+            <option value="ice_plains_spikes">Ice Plains Spikes</option>
+            <option value="jungle">Jungle</option>
+            <option value="jungle_edge">Jungle Edge</option>
+            <option value="jungle_hills">Jungle Hills</option>
+            <option value="jungle_mutated">Jungle Mutated</option>
+            <option value="lukewarm_ocean">Lukewarm Ocean</option>
+            <option value="mangrove_swamp">Mangrove Swamp</option>
+            <option value="mega_spruce_taiga">Mega Spruce Taiga</option>
+            <option value="mega_spruce_taiga_mutated">Mega Spruce Taiga Mutated</option>
+            <option value="mega_taiga">Mega Taiga</option>
+            <option value="mega_taiga_hills">Mega Taiga Hills</option>
+            <option value="mega_taiga_mutated">Mega Taiga Mutated</option>
+            <option value="mesa">Mesa</option>
+            <option value="mesa_bryce">Mesa Bryce</option>
+            <option value="mesa_mutated">Mesa Mutated</option>
+            <option value="mesa_plateau">Mesa Plateau</option>
+            <option value="mesa_plateau_stone">Mesa Plateau Stone</option>
+            <option value="mushroom_island">Mushroom Island</option>
+            <option value="mushroom_island_shore">Mushroom Island Shore</option>
+            <option value="ocean">Ocean</option>
+            <option value="plains">Plains</option>
+            <option value="river">River</option>
+            <option value="roofed_forest">Roofed Forest</option>
+            <option value="savanna">Savanna</option>
+            <option value="savanna_mutated">Savanna Mutated</option>
+            <option value="savanna_plateau">Savanna Plateau</option>
+            <option value="soulsand_valley">Soulsand Valley</option>
+            <option value="stone_beach">Stone Beach</option>
+            <option value="sunflower_plains">Sunflower Plains</option>
+            <option value="swampland">Swampland</option>
+            <option value="swampland_mutated">Swampland Mutated</option>
+            <option value="taiga">Taiga</option>
+            <option value="taiga_hills">Taiga Hills</option>
+            <option value="taiga_mutated">Taiga Mutated</option>
+            <option value="the_end">The End</option>
+            <option value="warm_ocean">Warm Ocean</option>
+            <option value="warped_forest">Warped Forest</option>
+          </datalist>
+        </p>
+        <div>
+
+          <!-- Identifier Field End -->
+
+
+
+          <!-- Distance Start -->
+          <!-- Controls air  water  weather  lava  lava_resistance -->
+          <div>
+            <h2 class="text-purple-400">Distance:</h2>
+            <br>
+
+            <!-- Air Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Air</b></h6>
+              <p class="text-gray-500">Fog Start:<input type="text" id="air_fog_start_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog End:<input type="text" id="air_fog_end_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog Color:<input type="color" id="air_fog_color_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value="#FFFFFF"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5  text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Render Distance Type:<input list="air_render_distance_type" type="text"
+                  id="air_render_distance_type_input" placeholder="Select Value" value="render"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <datalist id="air_render_distance_type">
+                <option value="render">Render</option>
+                <option value="fixed">Fixed</option>
+              </datalist>
+            </div>
+
+            <!-- Air End -->
+
+            <!-- Water Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Water</b></h6>
+              <p class="text-gray-500">Fog Start:<input type="text" id="water_fog_start_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog End:<input type="text" id="water_fog_end_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog Color:<input type="color" id="water_fog_color_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value="#FFFFFF"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5  text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Render Distance Type:<input list="water_render_distance_type" type="text"
+                  id="water_render_distance_type_input" placeholder="Select Value" value="render"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <datalist id="water_render_distance_type">
+                <option value="render">Render</option>
+                <option value="fixed">Fixed</option>
+              </datalist>
+            </div>
+
+            <!-- Water End -->
+
+            <!-- Weather Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Weather</b></h6>
+              <p class="text-gray-500">Fog Start:<input type="text" id="weather_fog_start_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog End:<input type="text" id="weather_fog_end_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog Color:<input type="color" id="weather_fog_color_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value="#FFFFFF"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5  text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Render Distance Type:<input list="weather_render_distance_type" type="text"
+                  id="weather_render_distance_type_input" placeholder="Select Value" value="render"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <datalist id="weather_render_distance_type">
+                <option value="render">Render</option>
+                <option value="fixed">Fixed</option>
+              </datalist>
+            </div>
+
+            <!-- Weather End -->
+
+            <!-- Lava Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Lava</b></h6>
+              <p class="text-gray-500">Fog Start:<input type="text" id="lava_fog_start_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog End:<input type="text" id="lava_fog_end_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog Color:<input type="color" id="lava_fog_color_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value="#FFFFFF"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5  text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Render Distance Type:<input list="lava_render_distance_type" type="text"
+                  id="lava_render_distance_type_input" placeholder="Select Value" value="render"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <datalist id="lava_render_distance_type">
+                <option value="render">Render</option>
+                <option value="fixed">Fixed</option>
+              </datalist>
+            </div>
+
+            <!-- Lava End -->
+
+            <!-- Lava Resistance Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Lava Resistance</b></h6>
+              <p class="text-gray-500">Fog Start:<input type="text" id="lava_resistance_fog_start_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog End:<input type="text" id="lava_resistance_fog_end_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Fog Color:<input type="color" id="lava_resistance_fog_color_input"
+                  placeholder="(Values 0.0 - 1.0 only)" value="#FFFFFF"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5  text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Render Distance Type:<input list="lava_resistance_render_distance_type"
+                  type="text" id="lava_resistance_distance_type_input" placeholder="Select Value" value="render"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <datalist id="lava_resistance_render_distance_type">
+                <option value="render">Render</option>
+                <option value="fixed">Fixed</option>
+              </datalist>
+            </div>
+            <div>
+              <h6 class="text-zinc-300">Lava Resistance</h6>
+            </div>
+            <br>
+
+            <!-- Lava Resistance End -->
+          </div>
+          <!-- Distance End -->
+
+          <!-- ------------------------- Coded By 0x4A4B ------------------------- -->
+
+
+          <!-- Volumetric Start -->
+
+          <!-- Density Start -->
+
+          <!-- Controls air  water  weather  lava  lava_resistance -->
+          <div>
+            <h2 class="text-purple-400">Volumetric:</h2>
+            <br>
+
+            <!-- Air Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Air</b></h6>
+              <p class="text-gray-500">Max Density:<input type="text" id="air_max_density"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Max Density Height:<input type="text" id="air_max_density_height"
+                  placeholder="Int" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Zero Density Height:<input type="text" id="air_zero_density_height"
+                  placeholder="Int" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+            </div>
+            <br>
+
+            <!-- Air End -->
+
+            <!-- Water Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Water</b></h6>
+              <p class="text-gray-500">Max Density:<input type="text" id="water_max_density"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Uniform:<input type="text" list="uniform" id="water_uniform"
+                  placeholder="Bool(True only)" value="true"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <datalist id="uniform">
+                <option value="true">True</option>
+              </datalist>
+            </div>
+            <br>
+
+            <!-- Water End -->
+
+            <!-- Lava Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Lava</b></h6>
+              <p class="text-gray-500">Max Density:<input type="text" id="lava_max_density"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Max Density Height:<input type="text" id="lava_max_density_height"
+                  placeholder="Int" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Zero Density Height:<input type="text" id="lava_zero_density_height"
+                  placeholder="Int" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+            </div>
+            <br>
+
+            <!-- Lava End -->
+
+            <!-- Lava Resistance Start -->
+            <div>
+              <h6 class="text-zinc-300"><b>Lava Resistance</b></h6>
+              <p class="text-gray-500">Max Density:<input type="text" id="lava_resistance_max_density"
+                  placeholder="(Values 0.0 - 1.0 only)" value=""
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <p class="text-gray-500">Uniform:<input type="text" list="uniform_lr" id="lava_resistance_uniform"
+                  placeholder="Bool(True only)" value="true"
+                  class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              </p><br>
+              <datalist id="uniform_lr">
+                <option value="true">True</option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+        <!-- Lava Resistance End -->
+        <!-- ------------------------- Coded By 0x4A4B ------------------------- -->
+        <!-- Media Coefficients Start -->
+        <!-- Controls air  water   cloud -->
+        <div>
+          <h2 class="text-purple-400">Media Coefficients:</h2>
+          <br>
+
+          <!-- Air Start -->
+          <div>
+            <h6 class="text-zinc-300"><b>Air</b></h6>
+            <p class="text-gray-500">Scattering: <br>
+              <input type="text" id="air_scattering_m11" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-1 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="air_scattering_m12" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="air_scattering_m13" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            </p><br>
+
+            <p class="text-gray-500">absorption: <br>
+              <input type="text" id="air_absorption_m11" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-1 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="air_absorption_m12" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="air_absorption_m13" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            </p><br>
+          </div>
+          <br>
+
+          <!-- Air End -->
+
+          <!-- Water Start -->
+          <div>
+            <h6 class="text-zinc-300"><b>Water</b></h6>
+            <p class="text-gray-500">Scattering: <br>
+              <input type="text" id="water_scattering_m21" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-1 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="water_scattering_m22" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="water_scattering_m23" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            </p><br>
+
+            <p class="text-gray-500">absorption: <br>
+              <input type="text" id="water_absorption_m21" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-1 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="water_absorption_m22" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="water_absorption_m23" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            </p><br>
+          </div>
+          <br>
+
+          <!-- Water End -->
+
+          <!-- Cloud Start -->
+          <div>
+            <h6 class="text-zinc-300"><b>Cloud</b></h6>
+            <p class="text-gray-500">Scattering: <br>
+              <input type="text" id="cloud_scattering_m31" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-1 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="cloud_scattering_m32" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="cloud_scattering_m33" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            </p><br>
+
+            <p class="text-gray-500">absorption: <br>
+              <input type="text" id="cloud_absorption_m31" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-1 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="cloud_absorption_m32" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input type="text" id="cloud_absorption_m33" placeholder="0.0 to max" value=""
+                class="float-right min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            </p><br>
+          </div>
+          <br>
+
+          <!-- Cloud End -->
+
+         
+        </div>
+ <!-- Media Coefficients End -->
+
+        <div>
+          <button onclick="generateFog()"
+            class="text-zinc-300 flex space-x-4 rounded-md bg-indigo-500 px-3.5 p-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+            Generate&nbsp;
+            <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+              viewBox="0 0 24 24" id="download-alt">
+              <path fill="#FFFFFF"
+                d="M19.91,15.51H15.38a1,1,0,0,0,0,2h2.4A8,8,0,0,1,4,12a1,1,0,0,0-2,0,10,10,0,0,0,16.88,7.23V21a1,1,0,0,0,2,0V16.5A1,1,0,0,0,19.91,15.51ZM12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1h4.5a1,1,0,0,0,0-2H6.22A8,8,0,0,1,20,12a1,1,0,0,0,2,0A10,10,0,0,0,12,2Z">
+              </path>
+            </svg>
+          </button>
+
+        </div>
+        <br>
+        <div>
+          <textarea id="fogTextArea" cols=80 rows=10
+            class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"></textarea>
+          <button onclick="clearTextArea()"
+            class="text-zinc-300 flex space-x-4 rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+            Clear&nbsp;
+            <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+              viewBox="0 0 24 24" id="download-alt">
+              <path fill="#FFFFFF"
+                d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z">
+              </path>
+            </svg>
+          </button>
+        </div>
+        <br>
+        <button onclick="downloadFog()"
+          class="text-zinc-300 flex space-x-4 rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ">
+          Download&nbsp;
+          <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+            viewBox="0 0 24 24" id="download-alt">
+            <path fill="#FFFFFF"
+              d="M8.29,13.29a1,1,0,0,0,0,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42L13,14.59V3a1,1,0,0,0-2,0V14.59l-1.29-1.3A1,1,0,0,0,8.29,13.29ZM18,9H16a1,1,0,0,0,0,2h2a1,1,0,0,1,1,1v7a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H8A1,1,0,0,0,8,9H6a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V12A3,3,0,0,0,18,9Z">
+            </path>
+          </svg>
+        </button>
+
+
+
+
+
+        <div class="text-zinc-300">
+          <ul role="list" class="divide-y divide-gray-100 ">
+            <li class="flex gap-x-5 py-5">
+              <div class="flex gap-x-4">
+                <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="profile.jpeg" alt="">
+                <div class="min-w-0 flex-auto">
+                  <p class="text-zinc-300 text-sm font-semibold leading-6 text-gray-900"><abbr
+                      style="text-decoration: none;" title="Mohamed Jiyath Khan Ibn Ibramsha">0x4A4B</abbr>
+                    @Discord</p>
+                  <p class="text-zinc-300 mt-1 truncate text-xs leading-5 text-gray-500">Front-end Developer | Founder
+                    of Al-Aleem Agency</p>
+                </div>
+              </div>
+            </li>
+        </div>
+        </ul>
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <button
+          class="text-zinc-300  rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ">
+          <!-- <a href="https://github.com/Jiyath5516F/Texture-Set-Generator" class="flex space-x-4"> -->
+            Source Code on&nbsp;
+            <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+              viewBox="0 0 24 24" id="download-alt">
+              <path fill="#FFFFFF"
+                d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z">
+              </path>
+            </svg>
+          </a>
+        </button>
+
+      </div>
+
+      <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+        <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ffd60a] to-[#ffc8dd] opacity-30"
+          style="clip-path: polygon(64.1% 48.1%, 100% 51.6%, 97.5% 26.9%, 89.5% 0.1%, 80.7% 2%, 72.5% 35.5%, 60.2% 62.4%, 52.9% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 69.9%, 17.9% 100%, 27.6% 76.8%, 78.1% 97.7%, 74.1% 44.1%)">
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>
